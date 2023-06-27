@@ -1,10 +1,10 @@
 ﻿Feature: Customer
-	Validating customer page functionalities - creating a customer
+	Validating customer page functionalities - Creating a customer
 
 @Customer
 Scenario: Create a new customer
-	Given I am on dashboard page
-	And I click on create new button
-	When I fill customer information
-	And I click on create button
-	Then The customer should be created and navigated to Dashboard page
+	Given I am on the dashboard page
+	And I click on the create new button
+	When I fill the customer information
+	And I click on the create button
+	Then The customer should be created and navigated to "Dashboard" page 

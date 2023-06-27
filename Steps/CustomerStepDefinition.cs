@@ -18,11 +18,11 @@ namespace SpecFlowProjectTestAutomationWebsite.Steps
             _scenarioContext = scenarioContext;
         }
 
-        [Given(@"I am on dashboard page")]
-        public void GivenIAmOnDashboardPage()
+        [Given(@"I am on the dashboard page")]
+        public void GivenIAmOnTheDashboardPage()
         {
-            Console.WriteLine("ScenarioTitle is: "+_scenarioContext.ScenarioInfo.Title);
-            
+            Console.WriteLine("ScenarioTitle is: " + _scenarioContext.ScenarioInfo.Title);
+
             var chromeOptions = new ChromeOptions();
             driver = new ChromeDriver(chromeOptions);
 
@@ -48,15 +48,15 @@ namespace SpecFlowProjectTestAutomationWebsite.Steps
             Assert.IsTrue(dashboardText.Displayed);
         }
 
-        [Given(@"I click on create new button")]
-        public void GivenIClickOnCreateNewButton()
+        [Given(@"I click on the create new button")]
+        public void GivenIClickOnTheCreateNewButton()
         {
             IWebElement createNewCustomer = driver.FindElement(By.XPath("//a[normalize-space()='Create New']"));
             createNewCustomer.Click();
         }
 
-        [When(@"I fill customer information")]
-        public void WhenIFillCustomerInformation()
+        [When(@"I fill the customer information")]
+        public void WhenIFillTheCustomerInformation()
         {
             IWebElement nameField = driver.FindElement(By.XPath("//input[@id='Name']"));
             IWebElement companyField = driver.FindElement(By.XPath("//input[@id='Company']"));
@@ -73,19 +73,18 @@ namespace SpecFlowProjectTestAutomationWebsite.Steps
             emailField.SendKeys("johnpacker@gmail.com");
         }
 
-        [When(@"I click on create button")]
-        public void WhenIClickOnCreateButton()
+        [When(@"I click on the create button")]
+        public void WhenIClickOnTheCreateButton()
         {
             IWebElement createButton = driver.FindElement(By.XPath("//input[@value='Create']"));
             createButton.Click();
         }
 
-        [Then(@"The customer should be created and navigated to Dashboard page")]
-        public void ThenTheCustomerShouldBeCreatedAndNavigatedToDashboardPage()
+        [Then(@"The customer should be created and navigated to ""([^""]*)"" page")]
+        public void ThenTheCustomerShouldBeCreatedAndNavigatedToPage(string dashboard)
         {
-            var ExpectedResults = "Dashboard";
             IWebElement dashboardText = driver.FindElement(By.XPath("//h1[normalize-space()='Dashboard']"));
-            Assert.AreEqual(ExpectedResults, dashboardText.Text);
+            Assert.AreEqual(dashboard, dashboardText.Text);
             //_scenarioContext.Pending();
             driver.Quit();
         }
