@@ -85,7 +85,7 @@ namespace SpecFlowProjectTestAutomationWebsite.Steps
         {
             IWebElement dashboardText = driver.FindElement(By.XPath("//h1[normalize-space()='Dashboard']"));
             Assert.AreEqual(dashboard, dashboardText.Text);
-            //_scenarioContext.Pending();
+
             driver.Quit();
         }
 
